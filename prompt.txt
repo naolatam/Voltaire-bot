@@ -1,0 +1,1 @@
+Trouve la faute d'orthographe dans cette phrase: {{PHRASE}}. Retourne moi le mot avec l'erreur dans une variable JSON nommé "word_wrong". Ne me redonne pas d'autre justification, juste le mot erroné. Si il n'y en a pas, mets la variable "word_wrong" a null

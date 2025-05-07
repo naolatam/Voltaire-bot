@@ -1,0 +1,385 @@
+Cette jeune chercheuse est promise au plus brillant 
+à venir
+.
+Cette jeune chercheuse est promise au plus brillant <B>avenir</B>.
+Il faut que cela change dans les années 
+avenir
+Il faut que cela change dans les années <B>à venir</B>.
+À l'
+, nous serons plus prudents.
+À l'<B>avenir</B>, nous serons plus prudents.
+Ne tardez pas 
+, tout le monde est là.
+Ne tardez pas <B>à venir</B>, tout le monde est là.
+Nous devrions le savoir dans un proche 
+Nous devrions le savoir dans un proche <B>avenir</B>.
+Que penseront de nous les générations 
+ ?
+Que penseront de nous les générations <B>à venir</B> ?
+Nous serons fixés sur notre sort dans les mois 
+Nous serons fixés sur notre sort dans les mois <B>à venir</B>.
+Nous devons songer à l'
+Malgré tout, nous espérons en l'
+Pour cette entreprise, les mois ___ seront déterminants.
+Pensez ___ chercher vos places de cinéma.
+Pensez <B>à venir</B> chercher vos places de cinéma.
+Ne devons&#x2011;nous pas penser aux générations 
+Ne devons&#x2011;nous pas penser aux générations <B>à venir</B> ?
+Ils sont habitués ___ au bureau en tramway.
+Ils sont habitués <B>à venir</B> au bureau en tramway.
+Ils hésitent encore ___ vendredi soir.
+Ils hésitent encore <B>à venir</B> vendredi soir.
+Pourquoi tardes&#x2011;tu toujours 
+Pourquoi tardes&#x2011;tu toujours <B>à venir</B> ?
+N'hésitez pas 
+, si vous êtes là samedi.
+N'hésitez pas <B>à venir</B>, si vous êtes là samedi.
+La situation devrait s'améliorer dans les semaines 
+La situation devrait s'améliorer dans les semaines <B>à venir</B>.
+Nous espérons que cela va s'améliorer dans les années 
+ chercher vos livres.
+Dans un ___ lointain, cela sera sans doute possible.
+Malgrés
+ les épreuves, ils n'ont jamais baissé les bras.
+<B>Malgré</B> les épreuves, ils n'ont jamais baissé les bras.
+ les petits accrochages qu'il y a parfois, l'ambiance de travail est bonne.
+<B>Malgré</B> les petits accrochages qu'il y a parfois, l'ambiance de travail est bonne.
+ ces petites répétitions, le texte est très bien.
+<B>Malgré</B> ces petites répétitions, le texte est très bien.
+ les embouteillages, nous sommes arrivés en fin d'après&#x2011;midi.
+<B>Malgré</B> les embouteillages, nous sommes arrivés en fin d'après&#x2011;midi.
+ ses promesses, il n'a rien fait du tout.
+<B>Malgré</B> ses promesses, il n'a rien fait du tout.
+ ces difficultés, nous restons optimistes.
+<B>Malgré</B> ces difficultés, nous restons optimistes.
+ la réduction qu'on me propose, j'hésite à faire cet achat.
+<B>Malgré</B> la réduction qu'on me propose, j'hésite à faire cet achat.
+ les bouchons, ils sont arrivés à l'heure à l'aéroport.
+<B>Malgré</B> les bouchons, ils sont arrivés à l'heure à l'aéroport.
+ ces petits problèmes au début, nous sommes satisfaits du résultat.
+<B>Malgré</B> ces petits problèmes au début, nous sommes satisfaits du résultat.
+Assisterez&#x2011;vous au séminaire 
+malgrés
+ tout ?
+Assisterez&#x2011;vous au séminaire <B>malgré</B> tout ?
+ nos remarques, il n'a rien modifié.
+<B>Malgré</B> nos remarques, il n'a rien modifié.
+ ses doutes, tout s'est très bien passé.
+<B>Malgré</B> ses doutes, tout s'est très bien passé.
+ leur absence, nous avons réussi à respecter les délais.
+<B>Malgré</B> leur absence, nous avons réussi à respecter les délais.
+ toutes ces visites, nous n'avons pas encore trouvé la maison de nos rêves.
+<B>Malgré</B> toutes ces visites, nous n'avons pas encore trouvé la maison de nos rêves.
+Malgré
+ la longue file d'attente, ils sont entrés rapidement dans la salle.
+ le danger, il a aidé ses voisins à sortir de l'immeuble en flammes.
+ les difficultés, ils ont réussi à redresser la situation.
+ l'heure tardive, il est encore au bureau.
+ leurs caractères opposés, ces deux collègues s'entendent bien.
+ sa déception, il a fait bonne figure pendant la réunion.
+La plupart des appartements 
+est
+ déjà 
+vendue
+La plupart des appartements <B>sont</B> déjà <B>vendus</B>.
+La plupart 
+achète
+ désormais leurs billets en ligne.
+La plupart <B>achètent</B> désormais leurs billets en ligne.
+La plupart des vitres 
+a été cassée
+ par l'explosion.
+La plupart des vitres <B>ont été cassées</B> par l'explosion.
+La plupart des clients 
+a
+ accepté de répondre à notre questionnaire.
+La plupart des clients <B>ont</B> accepté de répondre à notre questionnaire.
+ répondu par l'affirmative.
+La plupart <B>ont</B> répondu par l'affirmative.
+Malheureusement, la plupart des archives 
+a été détruite
+Malheureusement, la plupart des archives <B>ont été détruites</B>.
+Ces immeubles sont plus anciens, la plupart 
+date
+ du <span class=smallcaps>xviii <!-- smallcaps end --></span><SUP>e</SUP> siècle.
+Ces immeubles sont plus anciens, la plupart <B>datent</B> du <span class=smallcaps>xviii <!-- smallcaps end --></span><SUP>e</SUP> siècle.
+La plupart de mes livres 
+sont
+ dans mon bureau.
+La plupart des propriétaires 
+ont
+ assisté à la réunion.
+La plupart ne ___ pas du tout d'accord.
+La plupart des invités 
+logera
+ dans cet hôtel.
+La plupart des invités <B>logeront</B> dans cet hôtel.
+La plupart des pistes de ski 
+était
+ encore 
+ouverte
+ samedi dernier.
+La plupart des pistes de ski <B>étaient</B> encore <B>ouvertes</B> samedi dernier.
+La plupart de ces objets 
+a été retrouvée
+ près de la tombe de ce pharaon.
+La plupart de ces objets <B>ont été retrouvés</B> près de la tombe de ce pharaon.
+Ils ont découvert que la plupart de ces tableaux ___ des faux.
+Ils ont découvert que la plupart de ces tableaux <B>étaient</B> des faux.
+La plupart des riverains 
+regardait
+ d'un air inquiet la rivière qui grossissait.
+La plupart des riverains <B>regardaient</B> d'un air inquiet la rivière qui grossissait.
+La plupart des commerçants 
+avait
+ commencé à remballer les marchandises.
+La plupart des commerçants <B>avaient</B> commencé à remballer les marchandises.
+La plupart des fruits et des légumes que nous utilisons 
+vient
+ de la région.
+La plupart des fruits et des légumes que nous utilisons <B>viennent</B> de la région.
+La plupart des fenêtres 
+doivent
+ être 
+changées
+La plupart des prix littéraires 
+sont décernés
+ cette semaine&#x2011;là.
+La plupart des bébés ne 
+font
+ pas leurs nuits tout de suite !
+Ses 
+éfforts
+ ont fini par être récompensés.
+Ses <B>efforts</B> ont fini par être récompensés.
+Ce ne sera pas 
+nécéssaire
+Ce ne sera pas <B>nécessaire</B>.
+Ses réactions sont parfois 
+excéssives
+Ses réactions sont parfois <B>excessives</B>.
+Ce secteur est en pleine 
+éxpansion
+Ce secteur est en pleine <B>expansion</B>.
+J'
+éspère
+ que nous serons livrés la semaine prochaine.
+J'<B>espère</B> que nous serons livrés la semaine prochaine.
+Cette caisse est réservée aux 
+echanges
+ et aux remboursements.
+Cette caisse est réservée aux <B>échanges</B> et aux remboursements.
+Notre budget n'est pas 
+éxtensible
+Notre budget n'est pas <B>extensible</B>.
+Cette méthode a été 
+efficace
+estime
+ que nous avons eu de la chance.
+La population du village double pendant la période 
+estivale
+Je crois que tu n'as pas la bonne 
+tèchnique
+ !
+Je crois que tu n'as pas la bonne <B>technique</B> !
+J'ai imprimé le document en dix 
+éxemplaires
+J'ai imprimé le document en dix <B>exemplaires</B>.
+Je pense que nous ne 
+remèttrons
+ plus les pieds là&#x2011;bas.
+Je pense que nous ne <B>remettrons</B> plus les pieds là&#x2011;bas.
+La rue que vous cherchez est 
+pèrpendiculaire
+ à cette avenue.
+La rue que vous cherchez est <B>perpendiculaire</B> à cette avenue.
+Elle a été 
+pèrspicace
+, ils lui doivent une fière chandelle.
+Elle a été <B>perspicace</B>, ils lui doivent une fière chandelle.
+Je prends mon 
+impèrméable
+ et j'arrive !
+Je prends mon <B>imperméable</B> et j'arrive !
+Nous allons 
+éxpérimenter
+ ce nouveau procédé.
+Nous allons <B>expérimenter</B> ce nouveau procédé.
+Ce secteur est aujourd'hui en perte de 
+vitesse
+Il est 
+essentiel
+ de le faire maintenant.
+La maison est bien 
+exposée
+, elle est très lumineuse.
+accent ou pas ?
+Presqu'aussitôt
+ après, nous avons entendu un bruit de moteur.
+<B>Presque aussitôt</B> après, nous avons entendu un bruit de moteur.
+Nous avons couru et nous sommes arrivés 
+presqu'à
+ l'heure.
+Nous avons couru et nous sommes arrivés <B>presque à</B> l'heure.
+Mes enfants sont aujourd'hui 
+presqu'aussi
+ grands que moi !
+Mes enfants sont aujourd'hui <B>presque aussi</B> grands que moi !
+Cela me semblait 
+presqu'impossible
+, au début.
+Cela me semblait <B>presque impossible</B>, au début.
+Il y a 
+presqu'autant
+ de monde que la dernière fois.
+Il y a <B>presque autant</B> de monde que la dernière fois.
+En réalité, je crois qu'il était ___ gêné que moi.
+En réalité, je crois qu'il était <B>presque aussi</B> gêné que moi.
+Ils étaient 
+presqu'arrivés
+ quand l'orage a éclaté.
+Ils étaient <B>presque arrivés</B> quand l'orage a éclaté.
+La lumière dans le couloir s'est éteinte 
+presque aussitôt
+Il y a eu 
+presque autant
+ de visiteurs que l'année dernière.
+Cette ampoule me fait mal 
+presque à
+ chaque pas.
+Nous n'en revenions pas : nous étions déjà 
+presqu'en
+ juillet !
+Nous n'en revenions pas : nous étions déjà <B>presque en</B> juillet !
+ après, j'ai entendu un bruit sec.
+<B>Presque aussitôt</B> après, j'ai entendu un bruit sec.
+J'aime ___ le soleil que la neige.
+J'aime <B>presque autant</B> le soleil que la neige.
+Il était 
+presqu'arrivé
+ quand il s'en est aperçu.
+Il était <B>presque arrivé</B> quand il s'en est aperçu.
+Ce matin, nous sommes arrivés ___ même temps au bureau.
+Ce matin, nous sommes arrivés <B>presque en</B> même temps au bureau.
+À treize ans, ma fille est ___ grande que moi !
+À treize ans, ma fille est <B>presque aussi</B> grande que moi !
+Cet appartement est ___ grand que l'autre.
+Cet appartement est <B>presque aussi</B> grand que l'autre.
+Il s'est 
+presque endormi
+ au deuxième acte.
+J'ai mangé 
+presque entièrement
+ la tablette de chocolat en une heure.
+presque arrivés
+ quand un pneu a éclaté.
+Il m'a demandé 
+si il
+ pouvait laisser les cartons ici en attendant.
+Il m'a demandé <B>s'il</B> pouvait laisser les cartons ici en attendant.
+Je ne sais pas ___ est déjà au courant, je vais le prévenir.
+Je ne sais pas <B>s'il</B> est déjà au courant, je vais le prévenir.
+Si ils
+ ne sont pas imprimés la semaine prochaine, ils ne seront jamais livrés à temps.
+<B>S'ils</B> ne sont pas imprimés la semaine prochaine, ils ne seront jamais livrés à temps.
+Je vais voir ___ y en a ailleurs.
+Je vais voir <B>s'il</B> y en a ailleurs.
+ arrivent en avance, prévenez&#x2011;moi tout de suite.
+<B>S'ils</B> arrivent en avance, prévenez&#x2011;moi tout de suite.
+Si il
+ n'a pas le temps de le faire aujourd'hui, ce n'est pas grave.
+<B>S'il</B> n'a pas le temps de le faire aujourd'hui, ce n'est pas grave.
+Je me demande ___ y a une erreur dans cette phrase.
+Je me demande <B>s'il</B> y a une erreur dans cette phrase.
+Même 
+s'il
+ pleut, nous irons faire un tour à la brocante.
+Il se demande ___ est sur la bonne route.
+S'il
+ faut faire des travaux, cela ne nous dérange pas.
+ a encore de la fièvre demain, il n'ira pas travailler.
+<B>S'il</B> a encore de la fièvre demain, il n'ira pas travailler.
+si ils
+ se ressemblent beaucoup physiquement, ils ont des caractères très différents.
+Même <B>s'ils</B> se ressemblent beaucoup physiquement, ils ont des caractères très différents.
+Avant de partir, il regarde ___ n'a rien oublié sur son bureau.
+Avant de partir, il regarde <B>s'il</B> n'a rien oublié sur son bureau.
+Ils ne savent pas encore ___ pourront venir mardi.
+Ils ne savent pas encore <B>s'ils</B> pourront venir mardi.
+ y a la place de mettre deux autres chaises.
+Je ne sais pas <B>s'il</B> y a la place de mettre deux autres chaises.
+Nous aimerions savoir ___ est possible de réserver une table pour six personnes.
+Nous aimerions savoir <B>s'il</B> est possible de réserver une table pour six personnes.
+ a été clair sur ce point.
+Il se demande <B>s'il</B> a été clair sur ce point.
+ a bien reçu mon message.
+S'ils
+ préfèrent être livrés mardi matin, c'est tout à fait possible.
+ veulent venir, ils sont les bienvenus.
+Ça me 
+simplifirait
+ la vie, c'est sûr !
+Ça me <B>simplifierait</B> la vie, c'est sûr !
+L'entreprise 
+emploira
+ bientôt deux nouveaux ingénieurs.
+L'entreprise <B>emploiera</B> bientôt deux nouveaux ingénieurs.
+Nous 
+incluerons
+ cela dans le contrat.
+Nous <B>inclurons</B> cela dans le contrat.
+essuirons
+ probablement des reproches.
+Nous <B>essuierons</B> probablement des reproches.
+Nous espérons que cette médiation ne se 
+concluera
+ pas par un nouvel échec.
+Nous espérons que cette médiation ne se <B>conclura</B> pas par un nouvel échec.
+Nous ne savons pas encore s'ils l'
+exclueront
+Nous ne savons pas encore s'ils l'<B>excluront</B>.
+Cette nouvelle organisation nous 
+simplifira
+ le travail.
+Cette nouvelle organisation nous <B>simplifiera</B> le travail.
+Avant de l'envoyer, vous 
+vérifierez
+ que votre dossier est complet.
+Ils 
+modifieront
+ le texte avant de le faire imprimer.
+conclurons
+ cette affaire demain matin.
+Je 
+vérifirai
+ cela demain pour être certain de ne pas me tromper.
+Je <B>vérifierai</B> cela demain pour être certain de ne pas me tromper.
+Si les taux baissent, nous 
+renégocirons
+ notre prêt immobilier.
+Si les taux baissent, nous <B>renégocierons</B> notre prêt immobilier.
+Si on t'avait dit cela, qu'en 
+concluerais
+&#x2011;tu ?
+Si on t'avait dit cela, qu'en <B>conclurais</B>&#x2011;tu ?
+Si cela se reproduit, nous vous 
+excluerons
+ trois jours.
+Si cela se reproduit, nous vous <B>exclurons</B> trois jours.
+ vos remarques dans le rapport.
+Nous <B>inclurons</B> vos remarques dans le rapport.
+rectifirai
+ le texte dès demain matin.
+Je <B>rectifierai</B> le texte dès demain matin.
+apprécirions
+ beaucoup ces qualités.
+Nous <B>apprécierions</B> beaucoup ces qualités.
+Il 
+déploiera
+ toute son énergie pour y parvenir.
+Nous ne 
+privilégierons
+ personne.
+Nous n'
+exclurons
+ aucune hypothèse.
