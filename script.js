@@ -28,6 +28,8 @@ let responseMap = [];
 let requestMap = [];
 let actualResponse = "";
 
+let startAt = Date.now();
+
 if (hiddingPlace.includes("KEYBOARD")) {
     window.addEventListener("keydown", (e) => {
         if (e.key == "r" && hiddenLevel == 1) {
@@ -288,7 +290,7 @@ function findNextActivity() {
             break;
         }
     }
-    log("Activity found:", activity);
+    log("Activity found");
     return activity;
 }
 
@@ -354,3 +356,14 @@ async function start() {
         });
     }
 })();
+
+
+setInterval(() => {
+    let timeSince = Date.now() - startAt;
+    let minutes = Math.floor((timeSince / 1000 / 60) % 60);
+    let seconds = Math.floor((timeSince / 1000) % 60);
+    let hours = Math.floor((timeSince / 1000 / 60 / 60) % 24);
+    log(
+        `Time since start: ${hours}h ${minutes}m ${seconds}s`
+    );
+}, 10000);
