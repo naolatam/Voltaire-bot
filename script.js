@@ -8,29 +8,6 @@
 // @grant        none
 // ==/UserScript==
 
-/* (function() {
-    let requestMap = []
-    console.log("script started3")
-
-    
-
-    setTimeout(() => {
-        requestMap.sort((b, a) => a.responseText.length - b.responseText.length)
-        console.log("requestMap sorted!")
-        let reponseData = requestMap[0].responseText.slice(5, -1).split(",")
-        let newList = []
-        for(let i = 0; i < reponseData.length; i++) {
-            if(parseInt(reponseData[i]) != NaN) {
-                continue
-            }
-            newList.push(reponseData[i])
-        }      
-        console.log(newList)  
-
-    }, 5000);
-
-})();
- */
 
 /*
  ******* CONFIGURATION *******
@@ -97,9 +74,7 @@ function log(...text) {
 }
 
 async function requestReverso(phrase) {
-  console.log(reversoCache, reversoCache[phrase]);
     if (reversoCache.filter(a => a[0] == phrase).length > 0) {
-      log("Cache hit for phrase:", phrase);
         return reversoCache.filter(a => a[0] == phrase)[0][1];
     }
     const url = "https://orthographe.reverso.net/api/v1/Spelling/";
@@ -149,12 +124,6 @@ async function requestReverso(phrase) {
         for (let i = 0; i < data.corrections.length; i++) {
             let correction = data.corrections[i].correctionText;
             let original = data.corrections[i].mistakeText;
-            console.log(
-                "Correction:",
-                correction,
-                "Original:",
-                original.toLowerCase()
-            );
             if (correction.toLowerCase() != original.toLowerCase()) {
                 response.push({ good: correction, wrong: original });
             }
@@ -262,7 +231,7 @@ async function start() {
                 count++;
             }
 
-            log(responseMap, response);
+            log(response.response);
             respond(response);
         }
         await sleep(1000);
