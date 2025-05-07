@@ -8,13 +8,12 @@
 // @grant        none
 // ==/UserScript==
 
-
 /*
  ******* CONFIGURATION *******
  */
 // Set this to 0 for automatic mode
 // Set this to 1 for no automatic response and hidden response
-let hiddenLevel = 1;
+let hiddenLevel = 0;
 
 // Set the place where you want to hide the response in hiddenLevel 3.
 // You can choose one and set multiple between:
@@ -31,7 +30,7 @@ let actualResponse = "";
 
 if (hiddingPlace.includes("KEYBOARD")) {
     window.addEventListener("keydown", (e) => {
-        if (e.key == "r") {
+        if (e.key == "r" && hiddenLevel == 1) {
             let div = getContainer(".responseDiv");
             if (div == null) {
                 let newDiv = document.createElement("div");
@@ -74,8 +73,8 @@ function log(...text) {
 }
 
 async function requestReverso(phrase) {
-    if (reversoCache.filter(a => a[0] == phrase).length > 0) {
-        return reversoCache.filter(a => a[0] == phrase)[0][1];
+    if (reversoCache.filter((a) => a[0] == phrase).length > 0) {
+        return reversoCache.filter((a) => a[0] == phrase)[0][1];
     }
     const url = "https://orthographe.reverso.net/api/v1/Spelling/";
     const payLoad = {
@@ -138,25 +137,48 @@ async function requestReverso(phrase) {
     }
 }
 
-function respond(response) {
-    if (hiddenLevel == 0) {
+async function respond(response) {
+    if (response.status == -1) {
+        log("Response not found!");
+    } else if (response.status == 0) {
+        actualResponse = "Response is correct!";
+    } else {
+        actualResponse = "";
+        for (let i = 0; i < response.response.length; i++) {
+            actualResponse +=
+                response.response[i].wrong +
+                " => " +
+                response.response[i].good +
+                "\n";
+        }
     }
-    if (hiddenLevel == 1) {
-        if (response.status == -1) {
-            log("Response not found!");
-        } else if (response.status == 0) {
-            actualResponse = "Response is correct!";
-        } else {
-            actualResponse = "";
-            for (let i = 0; i < response.response.length; i++) {
-                actualResponse +=
-                    response.response[i].wrong +
-                    " => " +
-                    response.response[i].good +
-                    "\n";
+    if (hiddenLevel == 0) {
+        log("Waiting 7s before responding...");
+        await sleep(7000);
+
+        if (response.status == 0) {
+            let btn = await waitForQuerySelector(".noMistakeButton", 2000);
+            if(btn) btn.click();
+            await sleep(500);
+            await nextQuestion();
+        } else if (response.status == 1) {
+            let sentenceContainer = getContainer(".sentence");
+            if (sentenceContainer == null) return;
+
+            for (let i = 0; i < sentenceContainer.children.length; i++) {
+                let word = sentenceContainer.children[i].innerText;
+                for (let j = 0; j < response.response.length; j++) {
+                    if (response.response[j].wrong.includes(word)) {
+                        sentenceContainer.children[i].click();
+                        await sleep(1000);
+                        await nextQuestion();
+                        break;
+                    }
+                }
             }
         }
-
+    }
+    if (hiddenLevel == 1) {
         if (hiddingPlace.includes("URL")) {
             let url = window.location.href;
             let newUrl = url + "#" + actualResponse;
@@ -177,6 +199,49 @@ function respond(response) {
             }
         }
     }
+}
+
+async function nextQuestion() {
+    let btn = await waitForQuerySelector(".nextButton", 2000);
+    if (btn == null) {
+        log("Button not found!");
+        return;
+    }
+    btn.click();
+    await sleep(500);
+}
+
+function checkIfQCM() {
+    let qcm = getContainer(".popupContent")
+    if(qcm == null) {
+        return false;
+    }
+    if(qcm.querySelector(".intensiveTraining") == null) {
+        return false;
+    }
+    return true;
+
+}
+async function doQCM() {
+    if(!checkIfQCM()) {
+        log("Not a QCM!");
+        return;
+    }
+    let btn = document.querySelector(".understoodButton");
+    if(btn == null) {
+        return;
+    }
+    btn.click();
+    await sleep(750);
+    let questions = document.querySelector(".innerIntensiveQuestions").children
+    for(let i = 0; i < questions.length; i++) {
+        let question = questions[i];
+        question.querySelector("button").click();
+        await sleep(600)
+    }
+    document.querySelector(".exitButton").click();  
+    await sleep(1000);
+
 }
 
 function getContainer(selector) {
@@ -204,35 +269,71 @@ function waitForQuerySelector(selector, timeOut) {
     });
 }
 
+function findNextActivity() {
+    let activityListContainer = document.querySelectorAll(
+        ".activity-selector-list"
+    );
+    let activity = null;
+    for (let i = 0; i < activityListContainer.length; i++) {
+        activity = activityListContainer[i].querySelector(
+            ".activity-selector-cell:not(.completed):not(.disabled)"
+        );
+        if (activity != null) {
+            break;
+        }
+        activity = activityListContainer[i].querySelector(
+            ".validation-activity-cell:not(.completed):not(.disabled)"
+        );
+        if (activity != null) {
+            break;
+        }
+    }
+    log("Activity found:", activity);
+    return activity;
+}
+
+async function findResponse(sentence) {
+    log("Searching for response...");
+    let response = await requestReverso(sentence);
+    let count = 0;
+    while (response.status == -1) {
+        await sleep(1000);
+        if (count > 5) {
+            actualResponse =
+                "Error while getting reponse from Reverso. Check your internet connection. " +
+                response.message;
+            break;
+        }
+        response = await requestReverso(sentence);
+        count++;
+    }
+
+    log("Response ", response.response?? "Aucune");
+    await respond(response);
+}
+
 // This function is used to start the bot
 async function start() {
     while (true) {
         log(`Analysing current page`);
 
         if (getContainer(".sentence") != null) {
+            if(checkIfQCM()) {
+                await doQCM();
+            }
             log("Sentence found!");
             let sentence = getContainer(".sentence").innerText.replace(
                 "\\",
                 ""
             );
             log("Sentence:", sentence);
-            log("Searching for response...");
-            let response = await requestReverso(sentence);
-            let count = 0;
-            while (response.status == -1) {
-                await sleep(1000);
-                if (count > 5) {
-                    actualResponse =
-                        "Error while getting reponse from Reverso. Check your internet connection. " +
-                        response.message;
-                    break;
-                }
-                response = await requestReverso(sentence);
-                count++;
-            }
-
-            log(response.response);
-            respond(response);
+            await findResponse(sentence);
+        } else if (
+            hiddenLevel == 0 &&
+            getContainer(".activity-selector-title") != null
+        ) {
+            findNextActivity().click();
+            await sleep(5000);
         }
         await sleep(1000);
     }
