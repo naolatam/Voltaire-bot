@@ -243,10 +243,11 @@ async function doQCM() {
         let question = questions[i];
         let questionText = question.querySelector(".sentence").innerText;
         let response = await requestReverso(questionText);
+        log("QCM response", response);
         if(response.status > 0) {
-            question.querySelector("button:last-child").click();
+            question.querySelector(".buttonKo").click();
         }else {
-            question.querySelector("button").click();
+            question.querySelector(".buttonOk").click();
         }
         await sleep(600);
     }
@@ -326,11 +327,11 @@ async function findResponse(sentence) {
 async function start() {
     while (true) {
         log(`Analysing current page`);
-
+        if (checkIfQCM()) {
+            await doQCM();
+        }
         if (getContainer(".sentence") != null) {
-            if (checkIfQCM()) {
-                await doQCM();
-            }
+
             log("Sentence found!");
             let sentence = getContainer(".sentence").innerText.replace(
                 "\\",
