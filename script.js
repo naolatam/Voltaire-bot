@@ -129,6 +129,10 @@ async function requestReverso(phrase) {
                 response.push({ good: correction, wrong: original });
             }
         }
+        if (response.length == 0) {
+            reversoCache.push([phrase, { status: 0, response: null }]);
+            return { status: 0, response: null };
+        }
         reversoCache.push([phrase, { status: 1, response: response }]);
         return { status: 1, response: response };
     } else {
@@ -160,7 +164,7 @@ async function respond(response) {
 
         if (response.status == 0) {
             let btn = await waitForQuerySelector(".noMistakeButton", 2000);
-            if(btn) btn.click();
+            if (btn) btn.click();
             await sleep(500);
             await nextQuestion();
         } else if (response.status == 1) {
@@ -214,36 +218,40 @@ async function nextQuestion() {
 }
 
 function checkIfQCM() {
-    let qcm = getContainer(".popupContent")
-    if(qcm == null) {
+    let qcm = getContainer(".popupContent");
+    if (qcm == null) {
         return false;
     }
-    if(qcm.querySelector(".intensiveTraining") == null) {
+    if (qcm.querySelector(".intensiveTraining") == null) {
         return false;
     }
     return true;
-
 }
 async function doQCM() {
-    if(!checkIfQCM()) {
+    if (!checkIfQCM()) {
         log("Not a QCM!");
         return;
     }
     let btn = document.querySelector(".understoodButton");
-    if(btn == null) {
+    if (btn == null) {
         return;
     }
     btn.click();
     await sleep(750);
-    let questions = document.querySelector(".innerIntensiveQuestions").children
-    for(let i = 0; i < questions.length; i++) {
+    let questions = document.querySelector(".innerIntensiveQuestions").children;
+    for (let i = 0; i < questions.length; i++) {
         let question = questions[i];
-        question.querySelector("button").click();
-        await sleep(600)
+        let questionText = question.querySelector(".sentence").innerText;
+        let response = await requestReverso(questionText);
+        if(response.status > 0) {
+            question.querySelector("button:last-child").click();
+        }else {
+            question.querySelector("button").click();
+        }
+        await sleep(600);
     }
-    document.querySelector(".exitButton").click();  
+    document.querySelector(".exitButton").click();
     await sleep(1000);
-
 }
 
 function getContainer(selector) {
@@ -310,7 +318,7 @@ async function findResponse(sentence) {
         count++;
     }
 
-    log("Response ", response.response?? "Aucune");
+    log("Response ", response.response ?? "Aucune");
     await respond(response);
 }
 
@@ -320,7 +328,7 @@ async function start() {
         log(`Analysing current page`);
 
         if (getContainer(".sentence") != null) {
-            if(checkIfQCM()) {
+            if (checkIfQCM()) {
                 await doQCM();
             }
             log("Sentence found!");
@@ -357,13 +365,10 @@ async function start() {
     }
 })();
 
-
 setInterval(() => {
     let timeSince = Date.now() - startAt;
     let minutes = Math.floor((timeSince / 1000 / 60) % 60);
     let seconds = Math.floor((timeSince / 1000) % 60);
     let hours = Math.floor((timeSince / 1000 / 60 / 60) % 24);
-    log(
-        `Time since start: ${hours}h ${minutes}m ${seconds}s`
-    );
+    log(`Time since start: ${hours}h ${minutes}m ${seconds}s`);
 }, 10000);
