@@ -36,6 +36,9 @@ It's only working on `orthographe` and can get the correction on Reverso and Scr
 - The script will automatically interact with `Scribens.js` to provide grammar and spell-checking features from scribens.
 - The script will automatically choose the first not ended activity and will work on it until it successfully end it.
 
+## Configuration
+You can configure the script in the file. Look at the first line, all configuration possible are explained
+
 
 ## Contributing
 
