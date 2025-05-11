@@ -21,6 +21,7 @@ It's only working on `orthographe` and can get the correction on Reverso and Scr
     - Ensure `Scribens.js` is properly configured and running with Node.js.
     - Start the service:
       ```bash
+      npm i express
       node Scribens.js
       ```
 
