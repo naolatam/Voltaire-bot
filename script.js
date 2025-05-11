@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         New Userscript
 // @namespace    http://tampermonkey.net/
-// @version      2025-02-24
+// @version      2.1
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.projet-voltaire.fr/*
@@ -23,10 +23,19 @@ let hiddenLevel = 0;
 
 let hiddingPlace = ["URL", "KEYBOARD"];
 
+let correctionAPI = ["scribens"]; // "reverso" or "scribens"
+
+let scribensURL = "http://localhost:8080/scribens";
+
 // This variable is void. It's used by the code. Please do not tuch them! It may break the code for you.
 let responseMap = [];
 let requestMap = [];
 let actualResponse = "";
+
+// This variable is used to store request from correction API
+// It will be used to avoid multiple request for the same sentence
+let reversoCache = [];
+let scribensCache = [];
 
 let startAt = Date.now();
 
@@ -55,8 +64,6 @@ if (hiddingPlace.includes("KEYBOARD")) {
     });
 }
 
-let reversoCache = [];
-
 /*
  ******* FUNCTIONS *******
  */
@@ -73,6 +80,7 @@ function log(...text) {
         console.log("[Voltaire-BOT]", ...text);
     }
 }
+
 
 async function requestReverso(phrase) {
     if (reversoCache.filter((a) => a[0] == phrase).length > 0) {
@@ -143,6 +151,108 @@ async function requestReverso(phrase) {
     }
 }
 
+async function requestSribens(phrase) {
+    if (scribensCache.filter((a) => a[0] == phrase).length > 0) {
+        return scribensCache.filter((a) => a[0] == phrase)[0][1];
+    }
+    
+    
+    const req = await fetch(scribensURL + "?phrase=" + phrase, {
+    }).catch((error) => {
+        scribensCache.push([
+            phrase,
+            {
+                status: -1,
+                message: "Error " + response.status + " : " + error,
+            },
+        ]);
+        return {
+            status: -1,
+            message: "Error " + response.status + " : " + error,
+        };
+    });
+
+    if (req.ok) {
+        const data = await req.json();
+        
+        if (!
+            data.data.Cor || data.data.Cor.length == 0) {
+            scribensCache.push([phrase, { status: 0, response: null }]);
+            return { status: 0, response: null };
+        }
+        let response = [];
+        for (let i = 0; i < data.data.Cor.length; i++) {
+            let correction =
+                data.data.Cor[i].MotSolution.vectSolution[0]?.Left ?? "Not found";
+            let original = data.data.Cor[i].MotSolution.WordSt;
+            if (correction.toLowerCase() != original.toLowerCase()) {
+                response.push({ good: correction, wrong: original });
+            }
+        }
+        if (response.length == 0) {
+            scribensCache.push([phrase, { status: 0, response: null }]);
+            return { status: 0, response: null };
+        }
+        scribensCache.push([phrase, { status: 1, response: response }]);
+        return { status: 1, response: response };
+    }
+}
+
+async function fetchResponse(phrase) {
+    if (correctionAPI.length == 0) {
+        return await requestReverso(phrase);
+    }
+    if (correctionAPI.length == 1) {
+        switch (correctionAPI[0]) {
+            case "reverso":
+                return await requestReverso(phrase);
+            case "scribens":
+                return await requestSribens(phrase);
+            default:
+                return await requestReverso(phrase);
+        }
+    }
+    if (correctionAPI.length == 2) {
+        let receivedResponseCount = 0;
+        let responses = [];
+        await new Promise((resolve) => {
+            requestReverso(phrase).then((response) => {
+                receivedResponseCount++;
+                responses.push(response);
+                if (receivedResponseCount == 2) {
+                    resolve(response);
+                }
+            });
+            requestSribens(phrase).then((response) => {
+                receivedResponseCount++;
+                responses.push(response);
+                if (receivedResponseCount == 2) {
+                    resolve(response);
+                }
+            });
+        });
+        if (responses.every((a) => a.status == -1)) {
+            return { status: -1, response: null };
+        }
+        if (responses.every((a) => a.status == 0)) {
+            return { status: 0, response: null };
+        }
+        if (responses[0].status == 1 && responses[1].status != 1) {
+            return responses[0];
+        }
+        if (responses[0].status != 1 && responses[1].status == 1) {
+            return responses[1];
+        }
+        if (responses.every((a) => a.status == 1)) {
+            let response = { status: 1, response: [] };
+            for (let i = 0; i < responses.length; i++) {
+                response.response.push(...responses[i].response);
+            }
+            return response;
+        }
+    }
+}
+
 async function respond(response) {
     if (response.status == -1) {
         log("Response not found!");
@@ -161,7 +271,6 @@ async function respond(response) {
     if (hiddenLevel == 0) {
         log("Waiting 7s before responding...");
         await sleep(7000);
-
         if (response.status == 0) {
             let btn = await waitForQuerySelector(".noMistakeButton", 2000);
             if (btn) btn.click();
@@ -243,10 +352,9 @@ async function doQCM() {
         let question = questions[i];
         let questionText = question.querySelector(".sentence").innerText;
         let response = await requestReverso(questionText);
-        log("QCM response", response);
-        if(response.status > 0) {
+        if (response.status > 0) {
             question.querySelector(".buttonKo").click();
-        }else {
+        } else {
             question.querySelector(".buttonOk").click();
         }
         await sleep(600);
@@ -305,17 +413,17 @@ function findNextActivity() {
 
 async function findResponse(sentence) {
     log("Searching for response...");
-    let response = await requestReverso(sentence);
+    let response = await fetchResponse(sentence);
     let count = 0;
     while (response.status == -1) {
         await sleep(1000);
         if (count > 5) {
             actualResponse =
-                "Error while getting reponse from Reverso. Check your internet connection. " +
+                "Error while getting reponse from correction API. Check your internet connection. " +
                 response.message;
             break;
         }
-        response = await requestReverso(sentence);
+        response = await fetchResponse(sentence);
         count++;
     }
 
@@ -331,7 +439,6 @@ async function start() {
             await doQCM();
         }
         if (getContainer(".sentence") != null) {
-
             log("Sentence found!");
             let sentence = getContainer(".sentence").innerText.replace(
                 "\\",
